@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-display text-graytext antialiased;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-[1440px] px-6 sm:px-10 lg:px-[80px];
+}
+
+/* btn_lg — sólido verde, tal como el componente real del Figma */
+.btn-solid {
+  @apply inline-flex items-center bg-nxt-green p-[4px] sm:p-[5px] rounded-[5px];
+}
+.btn-solid > span {
+  @apply inline-flex items-center justify-center px-5 py-3 sm:px-[28px] sm:py-[14px] rounded-[3px] bg-nxt-green font-bold text-base sm:text-[20px] text-black;
+  box-shadow: 0 0 2px rgba(0,0,0,0.6);
+}
+
+/* btn_lg — variante outline (header) */
+.btn-outline-header {
+  @apply inline-flex items-center border border-nxt-green p-[3px] rounded-[5px];
+}
+.btn-outline-header > span {
+  @apply inline-flex items-center px-[10px] py-[10px] rounded-[3px] text-[13px] sm:text-[16px] text-nxt-green whitespace-nowrap;
+}
+
+.placeholder-frame {
+  @apply flex items-center justify-center rounded-2xl border border-dashed border-black/15 bg-black/[0.03] text-xs font-medium text-black/40;
+}
+
+/* btn_lg con texto en mayúsculas Light 16px / tracking 3.2px (Facturación, Más información) */
+.btn-solid.btn-caps > span {
+  @apply font-light text-[14px] sm:text-[16px] tracking-[3.2px] uppercase;
+}
