@@ -11,19 +11,30 @@ const NAV = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
+  const handleLogoClick = () => {
+    setOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const linkClass = (match: string[]) =>
-    match.includes(pathname) ? "text-nxt-green" : "text-graytext hover:text-black";
+    match.includes(pathname)
+      ? "text-nxt-blue"
+      : "text-slate-600 hover:text-slate-950";
 
   return (
-    <header className="relative bg-white">
-      <div className="flex items-center justify-between p-5 sm:px-10 lg:px-[40px] lg:py-[20px]">
-        <Link to="/" onClick={() => setOpen(false)}>
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 py-4 sm:px-10 lg:px-[80px]">
+        <Link to="/" onClick={handleLogoClick} aria-label="NXT Labs, inicio">
           <Logo />
         </Link>
 
-        <nav className="hidden items-start gap-[61px] md:flex">
+        <nav aria-label="Navegación principal" className="hidden items-center gap-9 md:flex">
           {NAV.map((item) => (
-            <Link key={item.label} to={item.to} className={`text-[16px] ${linkClass(item.match)}`}>
+            <Link
+              key={item.label}
+              to={item.to}
+              aria-current={item.match.includes(pathname) ? "page" : undefined}
+              className={`text-sm font-medium transition-colors ${linkClass(item.match)}`}
+            >
               {item.label}
             </Link>
           ))}
@@ -38,7 +49,7 @@ export function Header() {
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white transition hover:bg-slate-50 md:hidden"
         >
           <span className={`h-0.5 w-6 bg-black transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
           <span className={`h-0.5 w-6 bg-black transition-opacity ${open ? "opacity-0" : ""}`} />
@@ -47,21 +58,22 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="flex flex-col gap-1 border-t border-black/10 bg-white px-5 pb-6 pt-4 md:hidden">
+        <nav aria-label="Navegación móvil" className="flex flex-col gap-1 border-t border-slate-200 bg-white px-6 pb-6 pt-4 md:hidden">
           {NAV.map((item) => (
             <Link
               key={item.label}
               to={item.to}
               onClick={() => setOpen(false)}
-              className={`rounded-lg px-2 py-3 text-[16px] hover:bg-black/5 ${linkClass(item.match)}`}
+              aria-current={item.match.includes(pathname) ? "page" : undefined}
+              className={`rounded-lg px-3 py-3 text-base font-medium transition-colors hover:bg-slate-50 ${linkClass(item.match)}`}
             >
               {item.label}
             </Link>
           ))}
-          <Link to="/contacto" onClick={() => setOpen(false)} className="btn-outline-header mt-2 justify-center">
+          <Link to="/contacto" onClick={() => setOpen(false)} className="btn-solid mt-3 justify-center">
             <span>INGRESAR A NXT LABS</span>
           </Link>
-        </div>
+        </nav>
       )}
     </header>
   );

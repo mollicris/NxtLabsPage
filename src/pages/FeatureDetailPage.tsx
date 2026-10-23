@@ -21,7 +21,7 @@ export function FeatureDetailPage({
   heroTitle,
   heroSubtitle,
   heroImg,
-  heroImgNote,
+  heroImgNote = "",
   bandTitle,
   caracteristicas,
   detailSections,
@@ -30,7 +30,7 @@ export function FeatureDetailPage({
   heroTitle: string;
   heroSubtitle: string;
   heroImg?: string;
-  heroImgNote: string;
+  heroImgNote?: string;
   bandTitle: string;
   caracteristicas: Caracteristica[];
   detailSections: DetailSection[];
@@ -49,7 +49,7 @@ export function FeatureDetailPage({
               {heroSubtitle}
             </p>
             <Link to="/contacto" className="btn-solid btn-caps mt-6 lg:mt-[60px]">
-              <span>LOREM IPSUM</span>
+              <span>Solicitar información</span>
             </Link>
           </div>
 

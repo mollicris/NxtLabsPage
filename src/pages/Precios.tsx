@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
 import { MasInformacion } from "../components/MasInformacion";
 import { GeometricCubes } from "../components/GeometricArt";
@@ -5,54 +6,31 @@ import { GeometricCubes } from "../components/GeometricArt";
 const PLANES = [
   {
     nombre: "Básico",
-    resumen: "Regroup digital request roll existing hand tentative.",
+    resumen: "Una alternativa para comenzar a digitalizar la gestión de tu negocio.",
     precio: "Bs 999",
     periodo: "/año",
     destacado: false,
-    incluye: [
-      "Six ground discussion close will running.",
-      "That unlock gate door another driving.",
-      "Interim exploratory take reference resources.",
-    ],
   },
   {
     nombre: "Estándar",
-    resumen: "Regroup digital request roll existing hand tentative.",
+    resumen: "Una opción para acompañar las necesidades de una empresa en crecimiento.",
     precio: "Bs 2000",
     periodo: "/año",
     destacado: false,
-    incluye: [
-      "Six ground discussion close will running.",
-      "That unlock gate door another driving.",
-      "Interim exploratory take reference resources.",
-      "Complete a form and download to receive.",
-    ],
   },
   {
     nombre: "Premium",
-    resumen: "Regroup digital request roll existing hand tentative.",
+    resumen: "Una propuesta para negocios que buscan una solución más completa.",
     precio: "Bs 4000",
     periodo: "/año",
     destacado: true,
-    incluye: [
-      "Six ground discussion close will running.",
-      "That unlock gate door another driving.",
-      "Interim exploratory take reference resources.",
-      "Complete a form and download to receive.",
-      "Software over network administer solution.",
-    ],
   },
   {
     nombre: "Enterprise",
-    resumen: "Regroup digital request roll existing hand tentative.",
+    resumen: "Una propuesta personalizada según el alcance de tu operación.",
     precio: "A medida",
     periodo: "",
     destacado: false,
-    incluye: [
-      "Six ground discussion close will running.",
-      "That unlock gate door another driving.",
-      "Interim exploratory take reference resources.",
-    ],
   },
 ];
 
@@ -60,7 +38,7 @@ export function Precios() {
   return (
     <>
       <PageHero
-        title="Pharetra nulla scelerisque eleifend arcu tellus nunc."
+        title="Planes pensados para acompañar el crecimiento de tu empresa."
         art={<GeometricCubes />}
       />
 
@@ -82,17 +60,13 @@ export function Precios() {
                   <span className="text-sm font-normal text-graytext">{plan.periodo}</span>
                 </p>
 
-                <a href="#" className="btn-solid mt-4 justify-center">
-                  <span className="w-full justify-center text-sm">CONTRATAR</span>
-                </a>
+                <Link to="/contacto" className="btn-solid mt-4 justify-center">
+                  <span className="w-full justify-center text-sm">Consultar plan</span>
+                </Link>
 
-                <ul className="mt-6 flex flex-col gap-3">
-                  {plan.incluye.map((item) => (
-                    <li key={item} className="text-xs leading-relaxed text-graytext">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <p className="mt-5 border-t border-slate-200 pt-4 text-xs leading-relaxed text-graytext">
+                  Contáctanos para conocer el alcance del plan y encontrar la opción adecuada para tu empresa.
+                </p>
               </div>
             ))}
           </div>

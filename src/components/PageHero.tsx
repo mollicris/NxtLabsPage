@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-export function PageHero({ title, art }: { title: string; art: ReactNode }) {
+export function PageHero({ title, subtitle, art }: { title: string; subtitle?: string; art: ReactNode }) {
   return (
     <section
       className="bg-[#EDEDED]"
@@ -10,6 +10,11 @@ export function PageHero({ title, art }: { title: string; art: ReactNode }) {
         <h1 className="max-w-lg font-display text-3xl sm:text-4xl md:text-[40px] font-black leading-[1.15] text-black">
           {title}
         </h1>
+        {subtitle && (
+          <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+            {subtitle}
+          </p>
+        )}
         <div>{art}</div>
       </div>
     </section>
