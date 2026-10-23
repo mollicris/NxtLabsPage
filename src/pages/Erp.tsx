@@ -14,7 +14,7 @@ export function Erp() {
   return (
     <FeatureDetailPage
       eyebrow="ERP"
-      heroTitle="Pharetra nulla scelerisque eleifend arcu tellus nunc."
+      heroTitle="Pharetra nulla scelerisque eleifend arcu tellus nuncs"
       heroSubtitle="Dignissim tempus fringilla est neque tristique."
       heroImgNote="Ilustración del hero de ERP — exportar desde Figma (frame de la página ERP) y pasarla a src/assets/"
       bandTitle="ERP - Sistema de Planificación de Recursos Empresariales"
